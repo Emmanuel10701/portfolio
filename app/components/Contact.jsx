@@ -1,3 +1,6 @@
+// app/components/Contact.js
+'use client';
+
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { styles } from "../styles";
