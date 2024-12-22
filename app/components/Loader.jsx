@@ -1,10 +1,11 @@
+// components/CanvasLoader.js
 import { Html, useProgress } from "@react-three/drei";
 
 const CanvasLoader = () => {
-  const { progress } = useProgress();
+  const { progress } = useProgress(); // Get loading progress from useProgress hook
   return (
     <Html
-      as='div'
+      as="div"
       center
       style={{
         display: "flex",
@@ -13,7 +14,7 @@ const CanvasLoader = () => {
         flexDirection: "column",
       }}
     >
-      <span className='canvas-loader'></span>
+      <span className="canvas-loader"></span> {/* Custom loading spinner */}
       <p
         style={{
           fontSize: 14,
@@ -22,7 +23,7 @@ const CanvasLoader = () => {
           marginTop: 40,
         }}
       >
-        {progress.toFixed(2)}%
+        {progress.toFixed(2)}% {/* Display progress percentage */}
       </p>
     </Html>
   );

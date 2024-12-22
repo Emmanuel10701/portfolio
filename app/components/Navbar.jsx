@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-scroll";  // Import Link from react-scroll
+// components/Navbar.js
+import { useState, useEffect } from 'react';
+import Link from 'next/link'; // Use Next.js Link for routing
 
 import { styles } from "../styles";
 import { navLinks } from "../constants";
@@ -34,8 +35,9 @@ const Navbar = () => {
       }`}
     >
       <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
+        {/* Logo */}
         <Link
-          to="/"
+          href="/"
           className="flex items-center gap-2"
           onClick={() => {
             setActive("");
@@ -43,7 +45,7 @@ const Navbar = () => {
           }}
         >
           <img src={logo} alt="logo" className="w-9 h-9 object-contain" />
-          <p className="text-white text-[18px] ml-10 font-bold cursor-pointer flex ">
+          <p className="text-white text-[18px] ml-10 font-bold cursor-pointer flex">
             Emmanuel &nbsp;
             <span className="sm:block hidden"> | Juma </span>
           </p>
@@ -58,14 +60,9 @@ const Navbar = () => {
                 active === nav.title ? "text-white" : "text-secondary"
               } hover:text-white text-[18px] font-medium cursor-pointer`}
             >
-              {/* Use Link from react-scroll for smooth scrolling */}
               <Link
-                to={nav.id}  // The ID of the section to scroll to
-                smooth={true}  // Enables smooth scrolling
-                duration={500}  // Duration of the scroll in milliseconds
-                offset={-70}  // Adjust scroll position if needed (e.g., for fixed nav)
-                spy={true}  // Highlight active link when the section is in view
-                onClick={() => setActive(nav.title)}  // Update active state on click
+                href={`/#${nav.id}`}  // Use Next.js routing with anchor
+                onClick={() => setActive(nav.title)}
               >
                 {nav.title}
               </Link>
@@ -95,13 +92,8 @@ const Navbar = () => {
                     active === nav.title ? "text-white" : "text-secondary"
                   }`}
                 >
-                  {/* Use Link from react-scroll for smooth scrolling */}
                   <Link
-                    to={nav.id}  // The ID of the section to scroll to
-                    smooth={true}  // Enables smooth scrolling
-                    duration={500}  // Duration of the scroll in milliseconds
-                    offset={-70}  // Adjust scroll position if needed (e.g., for fixed nav)
-                    spy={true}  // Highlight active link when the section is in view
+                    href={`/#${nav.id}`}  // Use Next.js routing with anchor
                     onClick={() => {
                       setToggle(!toggle);
                       setActive(nav.title);
