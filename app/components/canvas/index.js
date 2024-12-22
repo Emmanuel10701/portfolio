@@ -1,9 +1,9 @@
 // app/components/index.js
 'use client';
 
-import EarthCanvas from "./EarthCanvas";
-import BallCanvas from "./BallCanvas";
-import ComputersCanvas from "./ComputersCanvas";
-import StarsCanvas from "./StarsCanvas";
+import EarthCanvas from "./Earth";
+import BallCanvas from "./Ball";
+import ComputersCanvas from "./Computers";
+import StarsCanvas from "./Stars";
 
 export { EarthCanvas, BallCanvas, ComputersCanvas, StarsCanvas };
