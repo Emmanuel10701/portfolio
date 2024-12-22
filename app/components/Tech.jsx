@@ -1,8 +1,8 @@
-"use client";  // Client-side rendering, ensure that the canvas works in the browser
+"use client"; // Ensure the canvas works in the browser
 
 import { BallCanvas } from "./canvas";
-import { SectionWrapper } from "../hoc";
-import { technologies } from "../constants";
+import { SectionWrapper } from "../hoc"; // Assuming SectionWrapper is a higher-order component
+import { technologies } from "../constants"; // Ensure this exists or define it
 
 const Tech = () => {
   return (
