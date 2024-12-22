@@ -1,4 +1,4 @@
-import React from "react";
+"use client";  // Client-side rendering, ensure that the canvas works in the browser
 
 import { BallCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
@@ -16,4 +16,5 @@ const Tech = () => {
   );
 };
 
+// Wrapping the Tech component with the SectionWrapper HOC (Higher Order Component)
 export default SectionWrapper(Tech, "");
