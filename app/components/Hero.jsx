@@ -1,3 +1,6 @@
+// app/components/Hero.js
+'use client';
+
 import { useState } from 'react';
 import { CircularProgress } from '@mui/material';
 import { Download } from 'lucide-react';
