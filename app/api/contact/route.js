@@ -5,16 +5,25 @@ export async function POST(request) {
   try {
     const { name, email, message } = await request.json();
 
+    // Validate input data
     if (!name || !email || !message) {
       return NextResponse.json({ error: 'Name, email, and message are required' }, { status: 400 });
     }
 
+    // Create the transporter with updated settings
     const transporter = nodemailer.createTransport({
-      service: 'gmail', 
+      service: 'gmail',
       auth: {
-        user: process.env.EMAIL_USER, 
-        pass: process.env.EMAIL_PASS, 
+        user: process.env.EMAIL_USER,  // Your email address
+        pass: process.env.EMAIL_PASS,  // Your app password
       },
+      tls: {
+        rejectUnauthorized: false,  // Disable certificate validation (can be useful for self-signed certificates)
+      },
+      port: 587,  // Switch to port 587 (TLS)
+      host: 'smtp.gmail.com',
+      connectionTimeout: 10000, // 10 seconds timeout
+      greetingTimeout: 10000,   // 10 seconds timeout for greeting response
     });
 
     // Email to the admin (you)
@@ -69,6 +78,10 @@ export async function POST(request) {
     return NextResponse.json({ message: 'Email sent successfully' }, { status: 200 });
   } catch (error) {
     console.error('Error sending email:', error);
-    return NextResponse.json({ error: 'Error sending email' }, { status: 500 });
+
+    return NextResponse.json({
+      error: error.message || 'Error sending email',
+      details: error.stack,
+    }, { status: 500 });
   }
 }

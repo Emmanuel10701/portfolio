@@ -1,0 +1,10 @@
+### Test POST request to sendEmail API
+
+POST http://localhost:3000/api/contact2
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "johndoe@example.com",
+  "message": "Hello, I would like more information about your services!"
+}

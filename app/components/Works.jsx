@@ -1,4 +1,8 @@
-import React from "react";
+// In your `Works.jsx` or any component where the issue arises
+'use client'; // Add this to ensure the component is rendered on the client side
+
+import React from 'react';
+import ReactParallaxTilt from 'react-parallax-tilt';
 import Tilt from 'react-parallax-tilt';
 import { motion } from "framer-motion";
 
